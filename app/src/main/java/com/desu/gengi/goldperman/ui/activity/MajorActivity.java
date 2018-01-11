@@ -11,11 +11,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.desu.gengi.goldperman.R;
 import com.desu.gengi.goldperman.ui.adapter.SectionsPagerAdapter;
 
-public class MajorActivity extends AppCompatActivity {
+public class MajorActivity extends AppCompatActivity implements View.OnClickListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -31,11 +34,16 @@ public class MajorActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private Button incomeBtn, expenseBtn;
+    private ImageButton historyBtn, settingBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_major);
+
+        initInstance();
+        setListener();
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -56,6 +64,20 @@ public class MajorActivity extends AppCompatActivity {
             }
         });*/
 
+    }
+
+    private void initInstance() {
+        incomeBtn = findViewById(R.id.income_btn);
+        expenseBtn = findViewById(R.id.expense_btn);
+        historyBtn = findViewById(R.id.imageButton);
+        settingBtn = findViewById(R.id.imageButton2);
+    }
+
+    private void setListener() {
+        incomeBtn.setOnClickListener(this);
+        expenseBtn.setOnClickListener(this);
+        historyBtn.setOnClickListener(this);
+        settingBtn.setOnClickListener(this);
     }
 
 
@@ -81,4 +103,24 @@ public class MajorActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.income_btn:
+                Toast.makeText(getApplicationContext(), view.getId() + "", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.expense_btn:
+                Toast.makeText(getApplicationContext(), view.getId() + "", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.imageButton:
+                Toast.makeText(getApplicationContext(), view.getId() + " History", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.imageButton2:
+                Toast.makeText(getApplicationContext(), view.getId() + " Setting", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), view.getId() + "", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 }
