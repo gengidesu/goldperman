@@ -1,9 +1,8 @@
 package com.desu.gengi.goldperman.ui.activity;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -98,25 +97,38 @@ public class MajorActivity extends AppCompatActivity implements View.OnClickList
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }
+        };
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private static long backPressed;
+    @Override
+    public void onBackPressed() {
+        if (backPressed + 2000L > System.currentTimeMillis()){
+            super.onBackPressed();
+        } else {
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+            backPressed = System.currentTimeMillis();
+        }
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.income_btn:
-                Toast.makeText(getApplicationContext(), view.getId() + "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Income", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.expense_btn:
-                Toast.makeText(getApplicationContext(), view.getId() + "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Expense", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.imageButton:
-                Toast.makeText(getApplicationContext(), view.getId() + " History", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), " History", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.imageButton2:
-                Toast.makeText(getApplicationContext(), view.getId() + " Setting", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Setting", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(MajorActivity.this, SettingsActivity.class);
+//                startActivity(intent);
                 break;
             default:
                 Toast.makeText(getApplicationContext(), view.getId() + "", Toast.LENGTH_SHORT).show();
