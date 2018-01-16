@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.desu.gengi.goldperman.ui.activity.MajorActivity">
+
+    <!-- "Mark Favorite", should appear as action button if possible -->
+    <item
+        android:id="@+id/action_calculator"
+        android:icon="@drawable/ic_android_black_48dp"
+        android:title="@string/menu_calculator_title"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_save"
+        android:icon="@drawable/ic_check_white_48dp"
+        android:title="@string/menu_calculator_title"
+        app:showAsAction="ifRoom" />
+
+</menu>

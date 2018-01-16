@@ -2,6 +2,8 @@ package com.desu.gengi.goldperman.ui.activity;
 
 import android.content.Intent;
 import android.os.Build;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.FragmentPagerAdapter;
@@ -35,6 +37,7 @@ public class MajorActivity extends AppCompatActivity implements View.OnClickList
     private ViewPager mViewPager;
     private Button incomeBtn, expenseBtn;
     private ImageButton historyBtn, settingBtn;
+    private ConstraintLayout mainContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,7 @@ public class MajorActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initInstance() {
+        mainContent = findViewById(R.id.main_content);
         incomeBtn = findViewById(R.id.income_btn);
         expenseBtn = findViewById(R.id.expense_btn);
         historyBtn = findViewById(R.id.imageButton);
@@ -118,22 +122,26 @@ public class MajorActivity extends AppCompatActivity implements View.OnClickList
         Intent intent = null;
         switch (view.getId()) {
             case R.id.income_btn:
-                Toast.makeText(getApplicationContext(), "Income", Toast.LENGTH_SHORT).show();
+                Snackbar.make(mainContent, "Income", Snackbar.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Income", Toast.LENGTH_SHORT).show();
                 intent = new Intent(MajorActivity.this, RecordActivity.class);
                 intent.putExtra("record_type", "income");
                 startActivity(intent);
                 break;
             case R.id.expense_btn:
-                Toast.makeText(getApplicationContext(), "Expense", Toast.LENGTH_SHORT).show();
+                Snackbar.make(mainContent, "Expense", Snackbar.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Expense", Toast.LENGTH_SHORT).show();
                 intent = new Intent(MajorActivity.this, RecordActivity.class);
                 intent.putExtra("record_type", "expense");
                 startActivity(intent);
                 break;
             case R.id.imageButton:
-                Toast.makeText(getApplicationContext(), " History", Toast.LENGTH_SHORT).show();
+                Snackbar.make(mainContent, "History", Snackbar.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), " History", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.imageButton2:
-                Toast.makeText(getApplicationContext(), "Setting", Toast.LENGTH_SHORT).show();
+                Snackbar.make(mainContent, "Setting", Snackbar.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Setting", Toast.LENGTH_SHORT).show();
 //                Intent intent = new Intent(MajorActivity.this, SettingsActivity.class);
 //                startActivity(intent);
                 break;
