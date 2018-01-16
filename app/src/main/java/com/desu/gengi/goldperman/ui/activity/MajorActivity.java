@@ -115,12 +115,19 @@ public class MajorActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
+        Intent intent = null;
         switch (view.getId()) {
             case R.id.income_btn:
                 Toast.makeText(getApplicationContext(), "Income", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MajorActivity.this, RecordActivity.class);
+                intent.putExtra("record_type", "income");
+                startActivity(intent);
                 break;
             case R.id.expense_btn:
                 Toast.makeText(getApplicationContext(), "Expense", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MajorActivity.this, RecordActivity.class);
+                intent.putExtra("record_type", "expense");
+                startActivity(intent);
                 break;
             case R.id.imageButton:
                 Toast.makeText(getApplicationContext(), " History", Toast.LENGTH_SHORT).show();

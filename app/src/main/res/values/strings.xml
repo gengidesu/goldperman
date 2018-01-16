@@ -97,4 +97,7 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="record_note_label">Note...</string>
+    <string name="record_category">Category</string>
+    <string name="record_currency_label">THB</string>
 </resources>
